@@ -1,0 +1,133 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 2023年4月8日, 上午1:07:35
+    Author     : Anya
+*/
+
+
+body{
+    margin-bottom: 5px;
+}
+
+#app{
+    width:500px;
+    height:500px;
+    justify-content: center;
+    
+}
+
+.system{
+    display: flex;
+    width:485px;
+    margin-bottom: 5px;
+}
+
+.workMode{
+    color: #32a89e;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.blue-table{
+    margin-top: 5px;
+    border:1px solid #32a89e;
+}
+
+.yellow-table{
+    border:1px solid #fccb06;
+    margin-bottom: 5px;
+}
+
+#title{
+    color: #286880;
+}
+
+#complete-title{
+    color: #FCCB06;
+}
+
+.container{
+    border: 2px;
+    border-color: #32a89e;
+}
+
+.button, .item{
+    border:0px;
+    background-color: transparent;
+}
+
+.input-box{
+    width:180px;
+    height:30px;
+} 
+
+.complete-button{
+    width:140px;
+    height:35px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.bi-plus-circle-fill{
+    height:35px;
+    width:35px;
+}
+.item:hover{
+    border: 1px;
+}
+
+.nav{
+    display: flex;
+    width:485px;
+    margin-top: 5px;
+}
+
+.complete-button{
+    display: inline;
+    margin-right: 15px;
+}
+
+
+
+.bi-plus-circle-fill{
+    color: #2596be;
+}
+
+.completed{
+    display:none;
+    margin-bottom: 2px;
+}
+
+.page{
+    display: flex;
+    
+}
+
+.pageNum{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.previous{
+    margin-right: auto;
+    margin-left: 0px;
+}
+
+.next{
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+
+.savelocal{
+    height:35px;
+    margin-left: 0px;
+    margin-right: auto;
+}

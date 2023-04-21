@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>To Do List</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <div class="header">
+                <h1 id="title">To Do List</h1>
+                <div class="system"> 
+                    <button class="btn btn-success savelocal" v-on:click.prevent="saveLocal()">         <!-- Save current table into LocalStorage -->
+                        <span>Save Table</span>
+                    </button>
+                    <span class="workMode">Current Working Mode: {{workMode}}</span>
+                </div>
+                <div class="nav">
+                    <div class="add-item">
+                        <input class="input-box" type="text" v-model="newItem.item" placeholder="new task">
+                        <button v-on:click.prevent="addList" class="button" type="submit">
+                            <i class="bi bi-plus-circle-fill"></i>
+                        </button>
+                    </div>
+                    <button v-on:click.prevent="showCompletedForm" class="btn btn-info complete-button" type="submit">
+                        show completed
+                    </button>
+                </div>
+            </div>
+            <!-- table of Pending -->
+            <table class="table table-striped blue-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No.</th>
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="row in currentPageItems">
+                        <td>
+                            <button class="button" v-on:click.prevent="completeList(row)" type="submit">
+                                <i class="bi bi-circle"></i>
+                            </button>
+                        </td>
+                        <td>{{row['id']}}</td>
+
+                        <td v-if="row.id == editForm.id">
+                            <input type="text" v-model="editForm.item" required class="form-control">
+                        </td>
+                        <td v-else><button v-on:click.prevent="editList(row)" class="item">{{row['item']}}</button></td>
+
+                        <td>{{row['status']}}</td>
+
+                        <td>
+                            <button v-on:click.prevent="saveList" v-if="row.id == editForm.id" class="button save"><i class="bi bi-archive"></i></button>
+                            <button v-on:click.prevent="deleteList(row)" class="button"><i class="bi bi-trash3-fill"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="page">
+                <button @click="setPage(currentPage-1)" :disabled="currentPage === 0" class="btn btn-info previous">Previous</button>     <!-- Previous Page access -->
+                <div class="currentPage">
+                    <span class="pageNumber">{{currentPage + 1}}</span>        <!-- Current Page-->
+                </div>
+                <button @click="setPage(currentPage+1)" :disabled="currentPage === pageCnt - 1" class="btn btn-info next">Next</button>   <!-- Next Page access -->
+            </div>
+            <div class="completed">
+                <h1 id="complete-title">Completed</h1>
+                <!-- table of Completed -->
+                <table class="table table-striped yellow-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>No.</th>
+                            <th>Item</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="row in completedForm">
+                            <td>
+                                <button class="button" v-on:click.prevent="changeList(row)" type="submit">
+                                    <i class="bi bi-check-circle"></i>
+                                </button>
+                            </td>
+                            <td>{{row['id']}}</td>
+
+                            <td>{{row['item']}}</td>
+
+                            <td>{{row['status']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
