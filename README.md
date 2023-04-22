@@ -1,6 +1,6 @@
 # To-Do-List
 This is a simple to do list connected to a h2 database, the list will be saved in database once the list has been altered.
-The list will be sync when refresh the website.
+The list will be sync when refresh the website. If more than five items, item displays in next page.
 
 To try this, run DemoApplication.Java
 and then type localhost on URL in browser (prefer Google Chrome).
